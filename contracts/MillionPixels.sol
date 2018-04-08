@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.21;
 
 
 contract MillionPixels {
@@ -67,7 +67,7 @@ contract MillionPixels {
     }
 
     // validate that the color is in hex format e.g. (#c5cef7)
-    function validateColorString(string str) private view {
+    function validateColorString(string str) private pure {
         bytes memory strBytes = bytes(str);
         require(strBytes.length == 6);
 

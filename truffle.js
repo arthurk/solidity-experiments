@@ -7,5 +7,8 @@ module.exports = {
           port: 9545,
           network_id: "*" // Match any network id
     }
-  }
+  },
+  mocha: {
+    useColors: false,
+  },
 };

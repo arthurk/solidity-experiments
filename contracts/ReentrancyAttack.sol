@@ -21,7 +21,7 @@ Result: Instead of just getting 1 ether it will get the whole
 
 ***/
 
-pragma solidity ^0.4.20;
+pragma solidity ^0.4.21;
 
 
 contract Bank {

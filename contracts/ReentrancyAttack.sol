@@ -1,22 +1,25 @@
-// Proof of concept for reentrancy-attack
-//
-// commands used (in truffle develop):
-//
-// migrate --reset
-//
-// Bank.deployed().then(instance => bankAddress = instance.address)
-// Bank.deployed().then(instance => instance.deposit({value: web3.toWei(10, "ether")}))
-//
-// web3.fromWei(web3.eth.getBalance(bankAddress).toNumber())
-// web3.fromWei(web3.eth.getBalance(Attacker.address).toNumber())
-//
-// Attacker.deployed().then(instance => instance.start())
-//
-// web3.fromWei(web3.eth.getBalance(bankAddress).toNumber())
-// web3.fromWei(web3.eth.getBalance(Attacker.address).toNumber())
-//
-// Result: Instead of just getting 1 ether it will get the whole
-// 10 ether with one tx
+ /***
+Proof of concept for reentrancy-attack
+
+Commands used (in truffle develop):
+
+migrate --reset
+
+Bank.deployed().then(instance => bankAddress = instance.address)
+Bank.deployed().then(instance => instance.deposit({value: web3.toWei(10, "ether")}))
+
+web3.fromWei(web3.eth.getBalance(bankAddress).toNumber())
+web3.fromWei(web3.eth.getBalance(Attacker.address).toNumber())
+
+Attacker.deployed().then(instance => instance.start())
+
+web3.fromWei(web3.eth.getBalance(bankAddress).toNumber())
+web3.fromWei(web3.eth.getBalance(Attacker.address).toNumber())
+
+Result: Instead of just getting 1 ether it will get the whole
+10 ether with one tx
+
+***/
 
 pragma solidity ^0.4.20;
 
